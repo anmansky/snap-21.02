@@ -10,7 +10,7 @@ TZ='Europe/Moscow' echo "r`date '+%y%m%d'`-`git log -n 1 --format='%H'|cut -c-8`
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 # Modify default IP
-sed -i 's/192.168.0.1/10.0.10.100/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.10.100/g' package/base-files/files/bin/config_generate
 ### default on Irqbalance
 sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 ######Remove SNAPSHOT tag
@@ -75,7 +75,7 @@ patch -p1 < ../PATCH/firewall/luci-app-firewall_add_fullcone.patch
 svn co https://github.com/Lienol/openwrt/trunk/package/network/fullconenat package/network/fullconenat
 
 ##rtl8812au-ac
-svn co  https://github.com/immortalwrt/immortalwrt/tree/master/package/kernel/rtl8812au-ac  package/kernel/rtl8812au-ac
+wget  https://github.com/immortalwrt/immortalwrt/tree/master/package/kernel/rtl8812au-ac  package/kernel/rtl8812au-ac
 
 ### Get additional base packages  ###
 # Replace with ImmortalWrt Uboot and Target
@@ -121,10 +121,17 @@ rm -rf ./feeds/packages/lang/node-yarn
 svn co https://github.com/nxhack/openwrt-node-packages/trunk/node-yarn feeds/packages/lang/node-yarn
 ln -sf ../../../feeds/packages/lang/node-yarn ./package/feeds/packages/node-yarn
 # R8168驱动
-git clone -b master --depth 1 https://github.com/BROBIRD/openwrt-r8168.git package/new/r8168
-patch -p1 < ../PATCH/r8168/r8168-fix_LAN_led-for_r4s-from_TL.patch
+#git clone -b master --depth 1 https://github.com/BROBIRD/openwrt-r8168.git package/new/r8168
+#patch -p1 < ../PATCH/r8168/r8168-fix_LAN_led-for_r4s-from_TL.patch
+
+##r8168  
+svn co https://github.com/anmansky/openwrt-21.02.0-rc4/tree/main/package/kernel/r8168 package/new/r8168
+##Enable r8168
+sed -i 's,kmod-r8169,kmod-r8168,g' target/linux/rockchip/image/armv8.mk
+
 # R8152驱动
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/kernel/r8152 package/new/r8152
+
 # UPX 可执行软件压缩
 sed -i '/patchelf pkgconf/i\tools-y += ucl upx' ./tools/Makefile
 sed -i '\/autoconf\/compile :=/i\$(curdir)/upx/compile := $(curdir)/ucl/compile' ./tools/Makefile
@@ -161,7 +168,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/n
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/new/ssocks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/new/hysteria
 
-# 清理内存
+# RAM  free
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/lean/luci-app-ramfree
 
 # ShadowsocksR Plus+ 依赖
