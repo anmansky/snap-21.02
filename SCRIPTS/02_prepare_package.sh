@@ -76,7 +76,7 @@ svn co https://github.com/Lienol/openwrt/trunk/package/network/fullconenat packa
 
 ##rtl8812au-ac
 #wget  https://github.com/immortalwrt/immortalwrt/tree/master/package/kernel/rtl8812au-ac  package/kernel/rtl8812au-ac
-cp -rf ../PACK/packages/rtl8812au-ac ./package/kernel/rtl8812au-ac
+cp -rf ../PACK/packages/rtl8812au-ac package/kernel/rtl8812au-ac
 
 ### Get additional base packages  ###
 # Replace with ImmortalWrt Uboot and Target
@@ -101,13 +101,13 @@ sed -i 's,rootwait,rootwait mitigations=off,g' target/linux/rockchip/image/nanop
 #sed -i 's,noinitrd,noinitrd mitigations=off,g' target/linux/x86/image/grub-pc.cfg
 
 ####luci-app-diskman
-wget https://github.com/anmansky/snap-21.02/tree/master/feeds/luci/applications/luci-app-diskman feeds/luci/applications/luci-app-diskman
+cp -rf ../PACK/luci/applications/luci-app-diskman feeds/luci/applications/luci-app-diskman
 
 ### parted
-cp -rf ../PACK/packages/parted ./package/new/parted
+cp -rf ../PACK/packages/parted package/parted
 
 # AutoCore
-cp -rf ../PACK/packages/autocore ./package/lean/autocore
+cp -rf ../PACK/packages/autocore package/autocore
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 
@@ -129,17 +129,14 @@ svn co https://github.com/nxhack/openwrt-node-packages/trunk/node-serialport-bin
 rm -rf ./feeds/packages/lang/node-yarn
 svn co https://github.com/nxhack/openwrt-node-packages/trunk/node-yarn feeds/packages/lang/node-yarn
 ln -sf ../../../feeds/packages/lang/node-yarn ./package/feeds/packages/node-yarn
-# R8168驱动
-#git clone -b master --depth 1 https://github.com/BROBIRD/openwrt-r8168.git package/new/r8168
-#patch -p1 < ../PATCH/r8168/r8168-fix_LAN_led-for_r4s-from_TL.patch
 
 ##r8168  
-svn co https://github.com/anmansky/openwrt-21.02.0-rc4/tree/main/package/kernel/r8168 package/new/r8168
+svn co https://github.com/anmansky/openwrt-21.02.0-rc4/tree/main/package/kernel/r8168 package/r8168
 ##Enable r8168
 sed -i 's,kmod-r8169,kmod-r8168,g' target/linux/rockchip/image/armv8.mk
 
 # R8152驱动
-svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/kernel/r8152 package/new/r8152
+svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/kernel/r8152 package/r8152
 
 # UPX 可执行软件压缩
 sed -i '/patchelf pkgconf/i\tools-y += ucl upx' ./tools/Makefile
