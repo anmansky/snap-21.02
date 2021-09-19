@@ -75,7 +75,8 @@ patch -p1 < ../PATCH/firewall/luci-app-firewall_add_fullcone.patch
 svn co https://github.com/Lienol/openwrt/trunk/package/network/fullconenat package/network/fullconenat
 
 ##rtl8812au-ac
-wget  https://github.com/immortalwrt/immortalwrt/tree/master/package/kernel/rtl8812au-ac  package/kernel/rtl8812au-ac
+#wget  https://github.com/immortalwrt/immortalwrt/tree/master/package/kernel/rtl8812au-ac  package/kernel/rtl8812au-ac
+cp -rf ../PACK/packages/rtl8812au-ac ./package/kernel/rtl8812au-ac
 
 ### Get additional base packages  ###
 # Replace with ImmortalWrt Uboot and Target
@@ -103,10 +104,10 @@ sed -i 's,rootwait,rootwait mitigations=off,g' target/linux/rockchip/image/nanop
 wget https://github.com/anmansky/snap-21.02/tree/master/feeds/luci/applications/luci-app-diskman feeds/luci/applications/luci-app-diskman
 
 ### parted
-wget https://github.com/anmansky/snap-21.02/tree/master/feeds/packages/parted package/new/parted
+cp -rf ../PACK/packages/parted ./package/new/parted
 
 # AutoCore
-wget https://github.com/anmansky/snap-21.02/tree/master/feeds/packages/autocore package/lean/autocore
+cp -rf ../PACK/packages/autocore ./package/lean/autocore
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 
