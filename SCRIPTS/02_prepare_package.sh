@@ -4,9 +4,13 @@ clear
 ### Basic part ###
 # Use O3-level optimization
 sed -i 's/Os/O3 -funsafe-math-optimizations -funroll-loops -ffunction-sections -fdata-sections -Wl,--gc-sections/g' include/target.mk
+# version
+TZ='Europe/Moscow' echo "r`date '+%y%m%d'`-`git log -n 1 --format='%H'|cut -c-8`" > version
 #Update Feeds
 ./scripts/feeds update -a
 ./scripts/feeds install -a
+# Modify default IP
+sed -i 's/192.168.0.1/10.0.10.100/g' package/base-files/files/bin/config_generate
 ### default on Irqbalance
 sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 ######Remove SNAPSHOT tag
@@ -69,6 +73,9 @@ wget -qO- https://github.com/msylgj/R2S-R4S-OpenWrt/raw/21.02/PATCHES/001-fix-fi
 patch -p1 < ../PATCH/firewall/luci-app-firewall_add_fullcone.patch
 # FullCone 相关组件
 svn co https://github.com/Lienol/openwrt/trunk/package/network/fullconenat package/network/fullconenat
+
+##rtl8812au-ac
+svn co  https://github.com/immortalwrt/immortalwrt/tree/master/package/kernel/rtl8812au-ac  package/kernel/rtl8812au-ac
 
 ### Get additional base packages  ###
 # Replace with ImmortalWrt Uboot and Target
