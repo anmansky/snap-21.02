@@ -131,7 +131,7 @@ svn co https://github.com/nxhack/openwrt-node-packages/trunk/node-yarn feeds/pac
 ln -sf ../../../feeds/packages/lang/node-yarn ./package/feeds/packages/node-yarn
 
 ##r8168  
-svn co https://github.com/anmansky/openwrt-21.02.0-rc4/tree/main/package/kernel/r8168 package/r8168
+cp -rf ../PACK/packages/r8168 package/r8168
 ##Enable r8168
 sed -i 's,kmod-r8169,kmod-r8168,g' target/linux/rockchip/image/armv8.mk
 
