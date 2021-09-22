@@ -104,7 +104,7 @@ sed -i 's,rootwait,rootwait mitigations=off,g' target/linux/rockchip/image/nanop
 cp -rf ../PACK/luci/applications/luci-app-diskman feeds/luci/applications/luci-app-diskman
 
 ### parted
-cp -rf ../PACK/packages/parted package/parted
+#cp -rf ../PACK/packages/parted package/parted
 
 # AutoCore
 cp -rf ../PACK/packages/autocore package/autocore
@@ -165,71 +165,17 @@ ln -sf ../../../feeds/packages/utils/cpulimit ./package/feeds/packages/cpulimit
 #pushd package/new/luci-app-passwall
 #bash move_2_services.sh
 #popd
-rm -rf ./feeds/packages/net/https-dns-proxy
-svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy feeds/packages/net/https-dns-proxy
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/new/tcping
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/new/trojan-go
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/new/brook
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/new/trojan-plus
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/new/ssocks
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/new/hysteria
+#rm -rf ./feeds/packages/net/https-dns-proxy
+#svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy feeds/packages/net/https-dns-proxy
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/new/tcping
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/new/trojan-go
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/new/brook
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/new/trojan-plus
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/new/ssocks
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/new/hysteria
 
 # RAM  free
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/lean/luci-app-ramfree
-
-# ShadowsocksR Plus+ 依赖
-rm -rf ./feeds/packages/net/kcptun
-rm -rf ./feeds/packages/net/shadowsocks-libev
-rm -rf ./feeds/packages/net/xray-core
-svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/lean/shadowsocksr-libev
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/pdnsd-alt package/lean/pdnsd
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/srelay package/lean/srelay
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/microsocks package/lean/microsocks
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dns2socks package/lean/dns2socks
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipt2socks package/lean/ipt2socks
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/simple-obfs package/lean/simple-obfs
-svn co https://github.com/coolsnowwolf/packages/trunk/net/shadowsocks-libev package/lean/shadowsocks-libev
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/trojan package/lean/trojan
-svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/lean/naiveproxy
-svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/lean/v2ray-core
-svn co https://github.com/fw876/helloworld/trunk/xray-core package/lean/xray-core
-svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/lean/v2ray-plugin
-svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/lean/xray-plugin
-svn co https://github.com/immortalwrt/packages/trunk/net/shadowsocks-rust feeds/packages/net/shadowsocks-rust
-ln -sf ../../../feeds/packages/net/shadowsocks-rust ./package/feeds/packages/shadowsocks-rust
-svn co https://github.com/immortalwrt/packages/trunk/net/kcptun feeds/packages/net/kcptun
-ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
-# ShadowsocksR Plus+
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/lean/luci-app-ssr-plus
-rm -rf ./package/lean/luci-app-ssr-plus/po/zh_Hans
-pushd package/lean
-wget -qO - https://github.com/fw876/helloworld/pull/645.patch | patch -p1
-wget -qO - https://github.com/QiuSimons/helloworld-fw876/commit/5bbf6e7.patch | patch -p1
-wget -qO - https://github.com/QiuSimons/helloworld-fw876/commit/323fbf0.patch | patch -p1
-popd
-pushd package/lean/luci-app-ssr-plus
-sed -i 's,default n,default y,g' Makefile
-sed -i 's,Xray:xray ,Xray:xray-core ,g' Makefile
-sed -i '/V2ray:v2ray/d' Makefile
-sed -i '/plugin:v2ray/d' Makefile
-sed -i '/result.encrypt_method/a\result.fast_open = "1"' root/usr/share/shadowsocksr/subscribe.lua
-#sed -i 's,ispip.clang.cn/all_cn,cdn.jsdelivr.net/gh/QiuSimons/Chnroute@master/dist/chnroute/chnroute,' root/etc/init.d/shadowsocksr
-sed -i 's,YW5vbnltb3Vz/domain-list-community/release/gfwlist.txt,Loyalsoldier/v2ray-rules-dat/release/gfw.txt,' root/etc/init.d/shadowsocksr
-#sed -i '/Clang.CN.CIDR/a\o:value("https://cdn.jsdelivr.net/gh/QiuSimons/Chnroute@master/dist/chnroute/chnroute.txt", translate("QiuSimons/Chnroute"))' luasrc/model/cbi/shadowsocksr/advanced.lua
-popd
-
-# 订阅转换
-svn co https://github.com/immortalwrt/packages/trunk/net/subconverter feeds/packages/net/subconverter
-ln -sf ../../../feeds/packages/net/subconverter ./package/feeds/packages/subconverter
-svn co https://github.com/immortalwrt/packages/trunk/libs/jpcre2 feeds/packages/libs/jpcre2
-ln -sf ../../../feeds/packages/libs/jpcre2 ./package/feeds/packages/jpcre2
-svn co https://github.com/immortalwrt/packages/trunk/libs/rapidjson feeds/packages/libs/rapidjson
-ln -sf ../../../feeds/packages/libs/rapidjson ./package/feeds/packages/rapidjson
-svn co https://github.com/immortalwrt/packages/trunk/libs/libcron feeds/packages/libs/libcron
-ln -sf ../../../feeds/packages/libs/libcron ./package/feeds/packages/libcron
-svn co https://github.com/immortalwrt/packages/trunk/libs/quickjspp feeds/packages/libs/quickjspp
-ln -sf ../../../feeds/packages/libs/quickjspp ./package/feeds/packages/quickjspp
 
 # Zerotier
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
