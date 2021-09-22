@@ -106,6 +106,12 @@ cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 ### parted
 cp -rf ../PACK/packages/parted package/parted
 
+### v2ray
+cp -rf ../PACK/packages/v2ray-core package/v2ray-core
+cp -rf ../PACK/packages/v2ray-plugin package/v2ray-plugin
+cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
+
+
 # AutoCore
 cp -rf ../PACK/packages/autocore package/autocore
 rm -rf ./feeds/packages/utils/coremark
