@@ -101,10 +101,10 @@ sed -i 's,rootwait,rootwait mitigations=off,g' target/linux/rockchip/image/nanop
 #sed -i 's,noinitrd,noinitrd mitigations=off,g' target/linux/x86/image/grub-pc.cfg
 
 ####luci-app-diskman
-cp -rf ../PACK/luci/applications/luci-app-diskman feeds/luci/applications/luci-app-diskman
+cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 
 ### parted
-#cp -rf ../PACK/packages/parted package/parted
+cp -rf ../PACK/packages/parted package/parted
 
 # AutoCore
 cp -rf ../PACK/packages/autocore package/autocore
