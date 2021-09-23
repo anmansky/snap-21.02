@@ -2,6 +2,10 @@
 
 Luci support for V2Ray
 
+**This branch is new LuCI for OpenWrt 19.07 and later.**
+
+**For legacy version: [Branch legacy](https://github.com/kuoruan/luci-app-v2ray/tree/legacy)**
+
 [![Release Version](https://img.shields.io/github/release/kuoruan/luci-app-v2ray.svg)](https://github.com/kuoruan/luci-app-v2ray/releases/latest) [![Latest Release Download](https://img.shields.io/github/downloads/kuoruan/luci-app-v2ray/latest/total.svg)](https://github.com/kuoruan/luci-app-v2ray/releases/latest) [![Total Download](https://img.shields.io/github/downloads/kuoruan/luci-app-v2ray/total.svg)](https://github.com/kuoruan/luci-app-v2ray/releases)
 
 ## Install
@@ -52,17 +56,15 @@ opkg upgrade luci-i18n-v2ray-zh-cn
 opkg install luci-app-v2ray_*.ipk
 ```
 
-Depends:
+Dependencies:
 
 - jshn
-- luci-lib-jsonc
 - ip (ip-tiny or ip-full)
 - ipset
 - iptables
 - iptables-mod-tproxy
 - resolveip
 - dnsmasq-full (dnsmasq ipset is required)
-- luci-compat (for OpenWrt 19.07 and later)
 
 For translations, please install ```luci-i18n-v2ray-*```.
 
@@ -79,3 +81,13 @@ For translations, please install ```luci-i18n-v2ray-*```.
 4. Add your inbound and outbound rules.
 
 5. Enable the service via LuCI.
+
+## Build
+
+Package files is in branch [luci2](https://github.com/kuoruan/luci-app-v2ray/tree/luci2)
+
+Download with Git:
+
+```sh
+git clone -b luci2 https://github.com/kuoruan/luci-app-v2ray.git luci-app-v2ray
+```
