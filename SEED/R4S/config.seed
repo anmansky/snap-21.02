@@ -81,10 +81,10 @@ CONFIG_PACKAGE_dnsmasq_full_ipset=y
 CONFIG_PACKAGE_dnsmasq_full_noid=y
 CONFIG_PACKAGE_dnsmasq_full_tftp=y
 CONFIG_PACKAGE_exfat-mkfs=y
-CONFIG_PACKAGE_frpc=y
-CONFIG_PACKAGE_frps=y
+#CONFIG_PACKAGE_frpc is not set
+#CONFIG_PACKAGE_frps is not set
 CONFIG_PACKAGE_gre=y
-CONFIG_PACKAGE_glorytun-udp=y
+#CONFIG_PACKAGE_glorytun-udp  is not set
 CONFIG_PACKAGE_hostapd-common=y
 CONFIG_PACKAGE_htop=y
 CONFIG_PACKAGE_i2c-tools=y
@@ -293,9 +293,9 @@ CONFIG_PACKAGE_luci-app-diskman=y
 #CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
 #CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk=y
 CONFIG_PACKAGE_luci-app-firewall=y
-CONFIG_PACKAGE_luci-app-frpc=y
-CONFIG_PACKAGE_luci-app-frps=y
-CONFIG_PACKAGE_luci-app-glorytun-udp=y
+#CONFIG_PACKAGE_luci-app-frpc  is not set
+#CONFIG_PACKAGE_luci-app-frps is not set
+#CONFIG_PACKAGE_luci-app-glorytun-udp is not set
 CONFIG_PACKAGE_luci-app-minidlna=y
 CONFIG_PACKAGE_luci-app-nft-qos=y
 CONFIG_PACKAGE_luci-app-nlbwmon=y
@@ -308,16 +308,16 @@ CONFIG_PACKAGE_luci-app-sqm=y
 CONFIG_PACKAGE_luci-app-unbound=y
 CONFIG_PACKAGE_luci-app-upnp=y
 CONFIG_PACKAGE_luci-app-vpn-policy-routing=y
-#CONFIG_PACKAGE_luci-app-v2ray=y
+#CONFIG_PACKAGE_luci-app-v2ray is not set
 CONFIG_PACKAGE_luci-app-wireguard=y
-CONFIG_PACKAGE_luci-app-zerotier=y
+#CONFIG_PACKAGE_luci-app-zerotier  is not set
 CONFIG_PACKAGE_luci-base=y
 CONFIG_PACKAGE_luci-compat=y
 CONFIG_PACKAGE_luci-i18n-adblock-en=y
 CONFIG_PACKAGE_luci-i18n-base-en=y
 CONFIG_PACKAGE_luci-i18n-firewall-en=y
-CONFIG_PACKAGE_luci-i18n-frpc-en=y
-CONFIG_PACKAGE_luci-i18n-frps-en=y
+#CONFIG_PACKAGE_luci-i18n-frpc-en is not set
+#CONFIG_PACKAGE_luci-i18n-frps-en is not set
 CONFIG_PACKAGE_luci-i18n-minidlna-en=y
 CONFIG_PACKAGE_luci-i18n-nft-qos-en=y
 CONFIG_PACKAGE_luci-i18n-nlbwmon-en=y

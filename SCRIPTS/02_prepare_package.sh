@@ -112,8 +112,8 @@ cp -rf ../PACK/packages/parted package/parted
 #cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
 
 ##glorytun-udp
-cp -rf ../PACK/packages/glorytun-udp package/glorytun-udp
-cp -rf ../PACK/luci/applications/luci-app-glorytun-udp package/luci-app-glorytun-udp
+#cp -rf ../PACK/packages/glorytun-udp package/glorytun-udp
+#cp -rf ../PACK/luci/applications/luci-app-glorytun-udp package/luci-app-glorytun-udp
 
 # AutoCore
 cp -rf ../PACK/packages/autocore package/autocore
