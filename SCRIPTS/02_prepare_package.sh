@@ -109,8 +109,11 @@ cp -rf ../PACK/packages/parted package/parted
 ### v2ray
 #cp -rf ../PACK/packages/v2ray-core package/v2ray-core
 #cp -rf ../PACK/packages/v2ray-plugin package/v2ray-plugin
-cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
+#cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
 
+##glorytun-udp
+cp -rf ../PACK/packages/glorytun-udp package/glorytun-udp
+cp -rf ../PACK/luci/applications/luci-app-glorytun-udp package/luci-app-glorytun-udp
 
 # AutoCore
 cp -rf ../PACK/packages/autocore package/autocore
