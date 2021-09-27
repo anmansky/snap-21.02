@@ -106,10 +106,10 @@ cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 ### parted
 cp -rf ../PACK/packages/parted package/parted
 
-### v2ray
-#cp -rf ../PACK/packages/v2ray-core package/v2ray-core
+### xray
+cp -rf ../PACK/packages/openwrt-xray package/openwrt-xray
 #cp -rf ../PACK/packages/v2ray-plugin package/v2ray-plugin
-#cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
+cp -rf ../PACK/luci/applications/luci-app-xray package/luci-app-xray
 
 ##glorytun-udp
 #cp -rf ../PACK/packages/glorytun-udp package/glorytun-udp
