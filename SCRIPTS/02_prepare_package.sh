@@ -107,7 +107,7 @@ cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 cp -rf ../PACK/packages/parted package/parted
 
 ### xray
-cp -rf ../PACK/packages/xray-core package/xray-core
+cp -rf ../PACK/packages/openwrt-xray package/openwrt-xray
 #cp -rf ../PACK/packages/v2raya package/v2raya
 cp -rf ../PACK/luci/applications/luci-app-xray package/luci-app-xray
 
