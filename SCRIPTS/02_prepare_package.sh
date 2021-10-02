@@ -113,7 +113,8 @@ cp -rf ../PACK/luci/applications/luci-app-xray package/luci-app-xray
 
 ### tun2socks
 cp -rf ../PACK/packages/tun2socks package/tun2socks
-cp -rf ../PACK/luci/applications/luci-proto-tun2socks package/luci-proto-tun2socks
+cp -rf ../PACK/luci/applications/luci-proto-tun2socks feeds/packages/luci-proto-tun2socks
+pushd feeds/packages
 
 ##glorytun-udp
 #cp -rf ../PACK/packages/glorytun-udp package/glorytun-udp
