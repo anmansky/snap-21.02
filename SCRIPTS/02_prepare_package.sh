@@ -106,10 +106,11 @@ cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 ### parted
 cp -rf ../PACK/packages/parted package/parted
 
-### xray
-cp -rf ../PACK/packages/openwrt-xray package/openwrt-xray
+### xray v2ray
+#cp -rf ../PACK/packages/openwrt-xray package/openwrt-xray
 #cp -rf ../PACK/packages/v2raya package/v2raya
-cp -rf ../PACK/luci/applications/luci-app-xray package/luci-app-xray
+#cp -rf ../PACK/luci/applications/luci-app-xray package/luci-app-xray
+cp -rf ../PACK/packages/v2ray-core package/v2ray-core
 
 ### tun2socks
 cp -rf ../PACK/packages/tun2socks package/tun2socks
