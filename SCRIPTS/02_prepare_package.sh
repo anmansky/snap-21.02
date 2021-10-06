@@ -31,9 +31,9 @@ wget -P target/linux/generic/hack-5.4/ https://github.com/immortalwrt/immortalwr
 # Patch jsonc
 patch -p1 < ../PATCH/jsonc/use_json_object_new_int64.patch
 # Patch dnsmasq
-patch -p1 < ../PATCH/dnsmasq/dnsmasq-add-filter-aaaa-option.patch
-patch -p1 < ../PATCH/dnsmasq/luci-add-filter-aaaa-option.patch
-cp -f ../PATCH/dnsmasq/900-add-filter-aaaa-option.patch ./package/network/services/dnsmasq/patches/900-add-filter-aaaa-option.patch
+#patch -p1 < ../PATCH/dnsmasq/dnsmasq-add-filter-aaaa-option.patch
+#patch -p1 < ../PATCH/dnsmasq/luci-add-filter-aaaa-option.patch
+#cp -f ../PATCH/dnsmasq/900-add-filter-aaaa-option.patch ./package/network/services/dnsmasq/patches/900-add-filter-aaaa-option.patch
 # BBRv2
 patch -p1 < ../PATCH/BBRv2/openwrt-kmod-bbr2.patch
 cp -f ../PATCH/BBRv2/693-Add_BBRv2_congestion_control_for_Linux_TCP.patch ./target/linux/generic/hack-5.4/693-Add_BBRv2_congestion_control_for_Linux_TCP.patch
@@ -110,12 +110,12 @@ cp -rf ../PACK/packages/parted package/parted
 #cp -rf ../PACK/packages/openwrt-xray package/openwrt-xray
 #cp -rf ../PACK/packages/v2raya package/v2raya
 #cp -rf ../PACK/luci/applications/luci-app-xray package/luci-app-xray
-cp -rf ../PACK/packages/v2ray-core package/v2ray-core
+#cp -rf ../PACK/packages/v2ray-core package/v2ray-core
 
 ### tun2socks
-cp -rf ../PACK/packages/tun2socks package/tun2socks
-cp -rf ../PACK/luci/applications/luci-proto-tun2socks feeds/packages/luci-proto-tun2socks
-pushd feeds/packages
+#cp -rf ../PACK/packages/tun2socks package/tun2socks
+#cp -rf ../PACK/luci/applications/luci-proto-tun2socks feeds/packages/luci-proto-tun2socks
+#pushd feeds/packages
 
 ##glorytun-udp
 #cp -rf ../PACK/packages/glorytun-udp package/glorytun-udp
