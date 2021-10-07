@@ -31,9 +31,9 @@ wget -P target/linux/generic/hack-5.4/ https://github.com/immortalwrt/immortalwr
 # Patch jsonc
 patch -p1 < ../PATCH/jsonc/use_json_object_new_int64.patch
 # Patch dnsmasq
-#patch -p1 < ../PATCH/dnsmasq/dnsmasq-add-filter-aaaa-option.patch
-#patch -p1 < ../PATCH/dnsmasq/luci-add-filter-aaaa-option.patch
-#cp -f ../PATCH/dnsmasq/900-add-filter-aaaa-option.patch ./package/network/services/dnsmasq/patches/900-add-filter-aaaa-option.patch
+patch -p1 < ../PATCH/dnsmasq/dnsmasq-add-filter-aaaa-option.patch
+patch -p1 < ../PATCH/dnsmasq/luci-add-filter-aaaa-option.patch
+cp -f ../PATCH/dnsmasq/900-add-filter-aaaa-option.patch ./package/network/services/dnsmasq/patches/900-add-filter-aaaa-option.patch
 # BBRv2
 patch -p1 < ../PATCH/BBRv2/openwrt-kmod-bbr2.patch
 cp -f ../PATCH/BBRv2/693-Add_BBRv2_congestion_control_for_Linux_TCP.patch ./target/linux/generic/hack-5.4/693-Add_BBRv2_congestion_control_for_Linux_TCP.patch
@@ -193,14 +193,14 @@ ln -sf ../../../feeds/packages/utils/cpulimit ./package/feeds/packages/cpulimit
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/lean/luci-app-ramfree
 
 # Zerotier
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
-wget -P feeds/luci/applications/luci-app-zerotier/ https://github.com/QiuSimons/OpenWrt-Add/raw/master/move_2_services.sh
-chmod -R 755 ./feeds/luci/applications/luci-app-zerotier/move_2_services.sh
-pushd feeds/luci/applications/luci-app-zerotier
-bash move_2_services.sh
-popd
-ln -sf ../../../feeds/luci/applications/luci-app-zerotier ./package/feeds/luci/luci-app-zerotier
-rm -rf ./feeds/packages/net/zerotier/files/etc/init.d/zerotier
+#svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
+#wget -P feeds/luci/applications/luci-app-zerotier/ https://github.com/QiuSimons/OpenWrt-Add/raw/master/move_2_services.sh
+#chmod -R 755 ./feeds/luci/applications/luci-app-zerotier/move_2_services.sh
+#pushd feeds/luci/applications/luci-app-zerotier
+#bash move_2_services.sh
+#popd
+#ln -sf ../../../feeds/luci/applications/luci-app-zerotier ./package/feeds/luci/luci-app-zerotier
+#rm -rf ./feeds/packages/net/zerotier/files/etc/init.d/zerotier
 
 
 ### Shortcut-FE 部分 ###
