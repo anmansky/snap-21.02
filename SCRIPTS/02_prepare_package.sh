@@ -108,14 +108,15 @@ cp -rf ../PACK/packages/parted package/parted
 
 ### xray v2ray
 #cp -rf ../PACK/packages/openwrt-xray package/openwrt-xray
-#cp -rf ../PACK/packages/v2raya package/v2raya
+cp -rf ../PACK/packages/luci-app-v2raya package/luci-app-v2raya
 #cp -rf ../PACK/luci/applications/luci-app-xray package/luci-app-xray
-#cp -rf ../PACK/packages/v2ray-core package/v2ray-core
+cp -rf ../PACK/packages/xray-core package/xray-core
 
 ### tun2socks
-#cp -rf ../PACK/packages/tun2socks package/tun2socks
-#cp -rf ../PACK/luci/applications/luci-proto-tun2socks feeds/packages/luci-proto-tun2socks
+cp -rf ../PACK/packages/tun2socks package/tun2socks
+cp -rf ../PACK/luci/applications/luci-proto-tun2socks feeds/packages/luci-proto-tun2socks
 #pushd feeds/packages
+ln -sf ../../../feeds/packages/lang/luci-proto-tun2socks ./package/feeds/packages/luci-proto-tun2socks
 
 ##glorytun-udp
 #cp -rf ../PACK/packages/glorytun-udp package/glorytun-udp

@@ -7,8 +7,13 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=Support for TUN2SOCKS
-LUCI_DEPENDS:=+tun2socks +ip
+LUCI_DEPENDS:=+tun2socks +ip +lua +libuci-lua
+LUCI_PKGARCH:=all
 
-include ../../luci.mk
+PKG_NAME:=luci-app-tun2sock
+PKG_VERSION:=1.999.130
+PKG_RELEASE:=1
+
+include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
