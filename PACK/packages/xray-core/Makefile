@@ -1,20 +1,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xray-core
-PKG_VERSION:=1.4.4
+PKG_VERSION:=1.4.5
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/XTLS/Xray-core/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=57d0bb681811cd7f806e77e0ee13235e4d66da130dd9a79e8b3e4b47b04a06c2
+PKG_HASH:=54c6a687dd463b25afe8d8eb44d37e18b8177f58308207cd1d74f6cd04619854
 
 PKG_MAINTAINER:=Tianling Shen <cnsztl@immortalwrt.org>
 PKG_LICENSE:=MPL-2.0
 PKG_LICENSE_FILES:=LICENSE
-
-PKG_CONFIG_DEPENDS:= \
-	CONFIG_XRAY_CORE_COMPRESS_GOPROXY \
-	CONFIG_XRAY_CORE_COMPRESS_UPX \
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/Xray-core-$(PKG_VERSION)
 PKG_BUILD_DEPENDS:=golang/host
@@ -23,7 +19,6 @@ PKG_USE_MIPS16:=0
 
 GO_PKG:=github.com/xtls/xray-core
 GO_PKG_BUILD_PKG:=github.com/xtls/xray-core/main
-GO_PKG_LDFLAGS:=-s -w
 GO_PKG_LDFLAGS_X:= \
 	$(GO_PKG)/core.build=OpenWrt \
 	$(GO_PKG)/core.version=$(PKG_VERSION)
@@ -78,20 +73,6 @@ define Package/xray-geodata/description
   This includes GEO datas used for xray-core.
 endef
 
-define Package/xray-core/config
-menu "Xray-core Configuration"
-	depends on PACKAGE_xray-core
-
-config XRAY_CORE_COMPRESS_GOPROXY
-	bool "Compiling with GOPROXY proxy"
-	default n
-
-config XRAY_CORE_COMPRESS_UPX
-	bool "Compress executable files with UPX"
-	default y
-endmenu
-endef
-
 define Package/xray-core/conffiles
 /etc/xray/
 /etc/config/xray
@@ -117,23 +98,11 @@ define Download/geosite
   HASH:=7618b876fd5a1066d0b44c1c8ce04608495ae991806890f8b1cbfafe79caf6c1
 endef
 
-ifneq ($(CONFIG_XRAY_CORE_COMPRESS_GOPROXY),)
-	export GO111MODULE=on
-	export GOPROXY=https://goproxy.baidu.com
-endif
-
 define Build/Prepare
 	$(call Build/Prepare/Default)
 ifneq ($(CONFIG_PACKAGE_xray-geodata),)
 	$(call Download,geoip)
 	$(call Download,geosite)
-endif
-endef
-
-define Build/Compile
-	$(call GoPackage/Build/Compile)
-ifneq ($(CONFIG_XRAY_CORE_COMPRESS_UPX),)
-	$(STAGING_DIR_HOST)/bin/upx --lzma --best $(GO_PKG_BUILD_BIN_DIR)/main
 endif
 endef
 

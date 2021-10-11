@@ -5,28 +5,23 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2rayA
-PKG_VERSION:=1.5.3
+PKG_VERSION:=1.5.4
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/v2rayA/v2rayA/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=0f6faeb297279dba138c2afc8525f090f965a0141a4f9d071165ea8500921a55
+PKG_HASH:=5ec7f4103e07fd4f3750284dc396823fcfccab73b0d101098771d419c9d836ac
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/service
 
 PKG_LICENSE:=AGPL-3.0-only
 PKG_LICENSE_FILES:=LICENSE
 PKG_MAINTAINER:=Tianling Shen <cnsztl@immortalwrt.org>
 
-PKG_CONFIG_DEPENDS:= \
-	CONFIG_V2RAYA_COMPRESS_GOPROXY \
-	CONFIG_V2RAYA_COMPRESS_UPX \
-
 PKG_BUILD_DEPENDS:=golang/host node/host node-yarn/host
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 
 GO_PKG:=github.com/v2rayA/v2rayA
-GO_PKG_LDFLAGS:=-s -w
 GO_PKG_LDFLAGS_X:=$(GO_PKG)/conf.Version=$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
@@ -56,20 +51,10 @@ define Package/v2raya/description
   compatible with SS, SSR, Trojan(trojan-go), PingTunnel protocols.
 endef
 
-define Package/v2raya/config
-config V2RAYA_COMPRESS_GOPROXY
-	bool "Compiling with GOPROXY proxy"
-	default n
-
-config V2RAYA_COMPRESS_UPX
-	bool "Compress executable files with UPX"
-	default y
+define Package/v2raya/conffiles
+/etc/v2raya/
+/etc/config/v2raya
 endef
-
-ifneq ($(CONFIG_V2RAYA_COMPRESS_GOPROXY),)
-	export GO111MODULE=on
-	export GOPROXY=https://goproxy.baidu.com
-endif
 
 define Build/Compile
 	( \
@@ -79,9 +64,6 @@ define Build/Compile
 		popd ; \
 		$(call GoPackage/Build/Compile) ; \
 	)
-ifneq ($(CONFIG_V2RAYA_COMPRESS_UPX),)
-	$(STAGING_DIR_HOST)/bin/upx --lzma --best $(GO_PKG_BUILD_BIN_DIR)/v2rayA
-endif
 endef
 
 define Package/v2raya/install
