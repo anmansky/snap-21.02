@@ -110,8 +110,8 @@ cp -rf ../PACK/packages/parted package/parted
 #cp -rf ../PACK/packages/openwrt-xray package/openwrt-xray
 #cp -rf ../PACK/packages/luci-app-v2raya package/luci-app-v2raya
 #cp -rf ../PACK/luci/applications/luci-app-xray package/luci-app-xray
-cp -rf ../PACK/packages/xray-core package/xray-core
-cp -rf ../PACK/packages/v2raya package/v2raya
+#cp -rf ../PACK/packages/xray-core package/xray-core
+#cp -rf ../PACK/packages/v2raya package/v2raya
 
 ### tun2socks
 cp -rf ../PACK/packages/badvpn package/badvpn
