@@ -9,7 +9,7 @@ on:
   #  types: started
 
 env:
-      TZ: Europe/Kiev
+      TZ: Europe//Moscow
 
 jobs:
   build:

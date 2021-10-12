@@ -114,7 +114,7 @@ cp -rf ../PACK/packages/parted package/parted
 #cp -rf ../PACK/packages/v2raya package/v2raya
 
 ### tun2socks
-cp -rf ../PACK/packages/badvpn package/badvpn
+#cp -rf ../PACK/packages/badvpn package/badvpn
 #cp -rf ../PACK/luci/applications/luci-proto-tun2socks package/luci-proto-tun2socks
 #pushd feeds/packages
 #ln -sf ../../../feeds/packages/lang/luci-proto-tun2socks ./package/feeds/packages/luci-proto-tun2socks
