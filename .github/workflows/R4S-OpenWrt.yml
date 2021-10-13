@@ -1,12 +1,12 @@
 name: R4S-OpenWrt
 
 on:
-     repository_dispatch:
-     workflow_dispatch:
+#     repository_dispatch:
+#     workflow_dispatch:
 #  schedule:
 #    - cron: 5 6 * * 0
-## watch:
-# #   types: started
+  watch:
+   types: started
 
 env:
        TZ: Europe//Moscow
@@ -115,7 +115,7 @@ jobs:
       run: |
         rm -rf ./artifact/
         mkdir -p ./artifact/
-        mv openwrt/bin/targets/rockchip/armv8/*sysupgrade.img* ./artifact/
+        mv openwrt/bin/targets/rockchip/armv8/* ./artifact/
         cd ./artifact/
         ls -Ahl
         gzip -d *.gz && exit 0
