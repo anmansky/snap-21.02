@@ -110,6 +110,9 @@ cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 ### parted
 cp -rf ../PACK/packages/parted package/parted
 
+###simple-obfs
+cp -rf ../PACK/packages/simple-obfs package/simple-obfs
+
 # 更换 Nodejs 版本
 rm -rf ./feeds/packages/lang/node
 svn co https://github.com/nxhack/openwrt-node-packages/trunk/node feeds/packages/lang/node
