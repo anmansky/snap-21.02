@@ -111,7 +111,8 @@ cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 cp -rf ../PACK/packages/parted package/parted
 
 ###simple-obfs
-cp -rf ../PACK/packages/simple-obfs package/simple-obfs
+#cp -rf ../PACK/packages/simple-obfs package/simple-obfs
+svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/lean/simple-obfs
 
 # 更换 Nodejs 版本
 rm -rf ./feeds/packages/lang/node
