@@ -110,6 +110,9 @@ cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 ### parted
 cp -rf ../PACK/packages/parted package/parted
 
+## cloudflared
+cp -rf ../PACK/packages/cloudflared package/cloudflared
+
 ###simple-obfs
 #cp -rf ../PACK/packages/simple-obfs package/simple-obfs
 svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/lean/simple-obfs
