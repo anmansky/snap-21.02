@@ -110,6 +110,9 @@ cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 ### parted
 cp -rf ../PACK/packages/parted package/parted
 
+### golang
+cp -rf ../PACK/packages/golang package/golang
+
 ## cloudflared
 cp -rf ../PACK/packages/cloudflared package/cloudflared
 
