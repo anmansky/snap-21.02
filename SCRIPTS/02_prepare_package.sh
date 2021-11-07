@@ -116,6 +116,9 @@ cp -rf ../PACK/packages/parted package/parted
 ## cloudflared
 #cp -rf ../PACK/packages/cloudflared package/cloudflared
 
+## v2ray-core
+svn co https://github.com/immortalwrt/packages/trunk/net/v2ray-core feeds/packages/net/v2ray-core
+
 ###simple-obfs
 #cp -rf ../PACK/packages/simple-obfs package/simple-obfs
 #svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/lean/simple-obfs
