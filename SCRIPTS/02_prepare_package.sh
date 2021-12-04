@@ -107,6 +107,12 @@ cp -rf ../PACK/packages/rtl8812au-ac package/kernel/rtl8812au-ac
 ####luci-app-diskman
 cp -rf ../PACK/luci/applications/luci-app-diskman package/luci-app-diskman
 
+####luci-proto-tun2socks
+cp -rf ../PACK/luci/applications/luci-proto-tun2socks package/luci-proto-tun2socks
+
+### tun2socks
+cp -rf ../PACK/packages/tun2socks package/tun2socks
+
 ### parted
 cp -rf ../PACK/packages/parted package/parted
 
@@ -117,7 +123,7 @@ cp -rf ../PACK/packages/parted package/parted
 #cp -rf ../PACK/packages/cloudflared package/cloudflared
 
 ## v2ray-core
-svn co https://github.com/immortalwrt/packages/trunk/net/v2ray-core feeds/packages/net/v2ray-core
+#svn co https://github.com/immortalwrt/packages/trunk/net/v2ray-core feeds/packages/net/v2ray-core
 
 ###simple-obfs
 #cp -rf ../PACK/packages/simple-obfs package/simple-obfs
