@@ -24,6 +24,13 @@ sed -i 's,-SNAPSHOT,,g' package/base-files/image-config.in
 #echo "net.netfilter.nf_conntrack_helper = 1" >>./package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 ### 必要的 Patches ###
+
+### 必要的 Patches ###
+# TCP performance optimizations backport from linux/net-next
+cp -f ../PATCH/backport/695-tcp-optimizations.patch ./target/linux/generic/backport-5.4/695-tcp-optimizations.patch
+# introduce "le9" Linux kernel patches
+cp -f ../PATCH/backport/695-le9i.patch ./target/linux/generic/hack-5.4/695-le9i.patch
+
 # Patch arm64 型号名称
 wget -P target/linux/generic/hack-5.4/ https://github.com/immortalwrt/immortalwrt/raw/openwrt-18.06-k5.4/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 # Patch jsonc
