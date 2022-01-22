@@ -136,6 +136,9 @@ cp -rf ../PACK/packages/parted package/parted
 #cp -rf ../PACK/packages/simple-obfs package/simple-obfs
 #svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/lean/simple-obfs
 
+### udp2raw
+cp -rf ../PACK/packages/udp2raw package/udp2raw
+
 # 更换 Nodejs 版本
 rm -rf ./feeds/packages/lang/node
 svn co https://github.com/nxhack/openwrt-node-packages/trunk/node feeds/packages/lang/node
