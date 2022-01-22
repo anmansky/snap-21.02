@@ -138,6 +138,8 @@ cp -rf ../PACK/packages/parted package/parted
 
 ### udp2raw
 cp -rf ../PACK/packages/udp2raw package/udp2raw
+####luci-app-udp2raw
+cp -rf ../PACK/luci/applications/luci-app-udp2raw package/luci-app-udp2raw
 
 # 更换 Nodejs 版本
 rm -rf ./feeds/packages/lang/node
