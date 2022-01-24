@@ -141,6 +141,12 @@ cp -rf ../PACK/packages/udp2raw package/udp2raw
 ####luci-app-udp2raw
 cp -rf ../PACK/luci/applications/luci-app-udp2raw package/luci-app-udp2raw
 
+### kcptun
+rm -rf ./feeds/packages/net/kcptun
+svn co https://github.com/immortalwrt/packages/trunk/net/kcptun feeds/packages/net/kcptun
+ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
+cp -rf ../PACK/luci/applications/luci-app-kcptun package/luci-app-kcptun
+
 # 更换 Nodejs 版本
 rm -rf ./feeds/packages/lang/node
 svn co https://github.com/nxhack/openwrt-node-packages/trunk/node feeds/packages/lang/node
