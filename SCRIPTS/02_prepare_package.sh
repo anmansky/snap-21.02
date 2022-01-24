@@ -143,8 +143,8 @@ cp -rf ../PACK/luci/applications/luci-app-udp2raw package/luci-app-udp2raw
 
 ### kcptun
 rm -rf ./feeds/packages/net/kcptun
-svn co https://github.com/immortalwrt/packages/trunk/net/kcptun feeds/packages/net/kcptun
-ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
+#svn co https://github.com/immortalwrt/packages/trunk/net/kcptun feeds/packages/net/kcptun
+#ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
 cp -rf ../PACK/luci/applications/luci-app-kcptun package/luci-app-kcptun
 
 # 更换 Nodejs 版本
@@ -176,6 +176,30 @@ sed -i '/patchelf pkgconf/i\tools-y += ucl upx' ./tools/Makefile
 sed -i '\/autoconf\/compile :=/i\$(curdir)/upx/compile := $(curdir)/ucl/compile' ./tools/Makefile
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/tools/upx tools/upx
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/tools/ucl tools/ucl
+
+# ShadowsocksR Plus+ 依赖
+rm -rf ./feeds/packages/net/kcptun
+rm -rf ./feeds/packages/net/shadowsocks-libev
+rm -rf ./feeds/packages/net/xray-core
+svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/lean/shadowsocksr-libev
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/pdnsd-alt package/lean/pdnsd
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/srelay package/lean/srelay
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/microsocks package/lean/microsocks
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dns2socks package/lean/dns2socks
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipt2socks package/lean/ipt2socks
+svn co https://github.com/coolsnowwolf/packages/trunk/net/shadowsocks-libev package/lean/shadowsocks-libev
+svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/lean/simple-obfs
+svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/lean/naiveproxy
+svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/lean/v2ray-core
+svn co https://github.com/fw876/helloworld/trunk/xray-core package/lean/xray-core
+svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/lean/v2ray-plugin
+svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/lean/xray-plugin
+svn co https://github.com/immortalwrt/packages/trunk/net/shadowsocks-rust feeds/packages/net/shadowsocks-rust
+sed -i '/Build\/Compile/a\\t$(STAGING_DIR_HOST)/bin/upx --lzma --best $$(PKG_BUILD_DIR)/$(component)' feeds/packages/net/shadowsocks-rust/Makefile
+ln -sf ../../../feeds/packages/net/shadowsocks-rust ./package/feeds/packages/shadowsocks-rust
+svn co https://github.com/immortalwrt/packages/trunk/net/kcptun feeds/packages/net/kcptun
+ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
 
 ### 获取额外的 LuCI 应用、主题和依赖 ###
 # 访问控制
