@@ -137,15 +137,18 @@ cp -rf ../PACK/packages/parted package/parted
 #svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/lean/simple-obfs
 
 ### udp2raw
-cp -rf ../PACK/packages/udp2raw package/udp2raw
+#cp -rf ../PACK/packages/udp2raw package/udp2raw
 ####luci-app-udp2raw
-cp -rf ../PACK/luci/applications/luci-app-udp2raw package/luci-app-udp2raw
+#cp -rf ../PACK/luci/applications/luci-app-udp2raw package/luci-app-udp2raw
 
 ### kcptun
-rm -rf ./feeds/packages/net/kcptun
+#rm -rf ./feeds/packages/net/kcptun
 #svn co https://github.com/immortalwrt/packages/trunk/net/kcptun feeds/packages/net/kcptun
 #ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
-cp -rf ../PACK/luci/applications/luci-app-kcptun package/luci-app-kcptun
+#cp -rf ../PACK/luci/applications/luci-app-kcptun package/luci-app-kcptun
+
+####luci-app-v2ray
+cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
 
 # 更换 Nodejs 版本
 rm -rf ./feeds/packages/lang/node
