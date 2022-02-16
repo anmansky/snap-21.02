@@ -206,10 +206,14 @@ ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
 
 ###  LuCi ###
 ## luci-app-v2ray
-rm -rf ./feeds/luci/applications/luci-app-v2ray
-cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray
-ln -sf ../../../feeds/luci/applications/luci-app-v2ray ./package/feeds/luci/luci-app-v2ray
+#rm -rf ./feeds/luci/applications/luci-app-v2ray
+#cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray
+#ln -sf ../../../feeds/luci/applications/luci-app-v2ray ./package/feeds/luci/luci-app-v2ray
 #####
+# v2raya
+git clone --depth 1 https://github.com/zxlhhyccc/luci-app-v2raya.git package/new/luci-app-v2raya
+svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2raya package/new/v2raya
+###
 ##svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-accesscontrol package/lean/luci-app-accesscontrol
 ##svn co https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-control-weburl package/new/luci-app-control-weburl
 # 广告过滤 Adbyby
