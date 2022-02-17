@@ -147,6 +147,10 @@ cp -rf ../PACK/packages/parted package/parted
 #ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
 #cp -rf ../PACK/luci/applications/luci-app-kcptun package/luci-app-kcptun
 
+## cloudflared
+rm -rf ./feeds/packages/net/cloudflared
+svn co https://github.com/immortalwrt/packages/trunk/net/cloudflared feeds/packages/net/cloudflared
+ln -sf ../../../feeds/packages/net/cloudflared ./package/feeds/packages/cloudflared
 ####luci-app-v2ray
 #cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
 
