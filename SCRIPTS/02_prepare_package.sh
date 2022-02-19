@@ -210,9 +210,9 @@ ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
 
 ###  LuCi ###
 ## luci-app-v2ray
-#rm -rf ./feeds/luci/applications/luci-app-v2ray
-#cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray
-#ln -sf ../../../feeds/luci/applications/luci-app-v2ray ./package/feeds/luci/luci-app-v2ray
+rm -rf ./feeds/luci/applications/luci-app-v2ray
+cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray
+ln -sf ../../../feeds/luci/applications/luci-app-v2ray ./package/feeds/luci/luci-app-v2ray
 #####
 # v2raya
 git clone --depth 1 https://github.com/zxlhhyccc/luci-app-v2raya.git package/new/luci-app-v2raya
