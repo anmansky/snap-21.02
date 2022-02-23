@@ -4,9 +4,9 @@ PKG_NAME:=tun2socks
 PKG_VERSION:=1.999.130.1
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
-PKG_SOURCE_URL:=https://github.com/ravageralpha/badvpn/releases/download/$(PKG_VERSION)
-PKG_SOURCE:=badvpn-$(PKG_VERSION).tar.gz
-PKG_MD5SUM:=bd3328d42026f10a4bd32cebc148ef37
+PKG_SOURCE_URL:=https://github.com/XTLS/badvpn.git
+PKG_SOURCE_VERSION:=c440609ca7fb8b85d83d528526b3f02c1a63376d
+
 	
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)/badvpn-$(PKG_VERSION)
 
