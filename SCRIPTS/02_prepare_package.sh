@@ -141,11 +141,11 @@ cp -rf ../PACK/packages/parted package/parted
 ####luci-app-udp2raw
 #cp -rf ../PACK/luci/applications/luci-app-udp2raw package/luci-app-udp2raw
 
-### kcptun
-#rm -rf ./feeds/packages/net/kcptun
-#svn co https://github.com/immortalwrt/packages/trunk/net/kcptun feeds/packages/net/kcptun
-#ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
-#cp -rf ../PACK/luci/applications/luci-app-kcptun package/luci-app-kcptun
+### naiveproxy
+rm -rf ./feeds/packages/net/naiveproxy
+svn co https://github.com/immortalwrt/packages/trunk/net/naiveproxy feeds/packages/net/naiveproxy
+ln -sf ../../../feeds/packages/net/naiveproxy ./package/feeds/packages/naiveproxy
+cp -rf ../PACK/luci/applications/luci-app-naiveproxy package/luci-app-naiveproxy
 
 ## cloudflared
 rm -rf ./feeds/packages/net/cloudflared
