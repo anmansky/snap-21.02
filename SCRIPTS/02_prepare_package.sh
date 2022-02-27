@@ -143,8 +143,9 @@ cp -rf ../PACK/packages/parted package/parted
 
 ### naiveproxy
 rm -rf ./feeds/packages/net/naiveproxy
-svn co https://github.com/immortalwrt/packages/trunk/net/naiveproxy feeds/packages/net/naiveproxy
-ln -sf ../../../feeds/packages/net/naiveproxy ./package/feeds/packages/naiveproxy
+#svn co https://github.com/immortalwrt/packages/trunk/net/naiveproxy feeds/packages/net/naiveproxy
+cp -rf ../PACK/packages/naiveproxy package/naiveproxy
+#ln -sf ../../../feeds/packages/net/naiveproxy ./package/feeds/packages/naiveproxy
 cp -rf ../PACK/luci/applications/luci-app-naiveproxy package/luci-app-naiveproxy
 
 ## cloudflared
