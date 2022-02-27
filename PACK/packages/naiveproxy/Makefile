@@ -5,20 +5,31 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=naiveproxy
-PKG_VERSION:=98.0.4758.80-2
-PKG_RELEASE:=$(AUTORELEASE)
+PKG_VERSION:=98.0.4758.80-1
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/klzgrad/naiveproxy/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=687a1c43f5bff61b2c1857d65031a5234af358053cf00e20911b75b073e55df4
+PKG_HASH:=7ea663ffc7a41162bc64d06d88788bcfa2e311e2a52e767eb579b9660b7d0747
 
 PKG_LICENSE:=BSD 3-Clause
 PKG_LICENSE_FILES:=LICENSE
 PKG_MAINTAINER:=Tianling Shen <cnsztl@immortalwrt.org>
 
-PKG_BUILD_DEPENDS:=ninja/host python3/host
+PKG_BUILD_DEPENDS:=python3/host
+ifneq ($(wildcard $(TOPDIR)/feeds/packages/devel/ninja/ninja.mk),)
+PKG_BUILD_DEPENDS+= ninja/host
+endif
 PKG_USE_MIPS16:=0
 PKG_BUILD_PARALLEL:=1
+
+ifeq ($(NINJA),)
+NINJA = \
+	MAKEFLAGS="$(MAKE_JOBSERVER)" \
+		$(STAGING_DIR_HOSTPKG)/bin/ninja \
+		$(if $(findstring c,$(OPENWRT_VERBOSE)),-v) \
+		$(if $(MAKE_JOBSERVER),,-j1)
+endif
 
 ifneq ($(CONFIG_CPU_TYPE)," ")
   CPU_TYPE:=$(word 1, $(subst +," ,$(CONFIG_CPU_TYPE)))
@@ -104,7 +115,7 @@ define Build/Compile
 		export naive_flags+=" $$$${naive_ccache_flags}" ; \
 		mkdir -p "out" ; \
 		./gn/out/gn gen "out/Release" --args="$$$${naive_flags}" --script-executable="$(PYTHON)" ; \
-		ninja -C "out/Release" naive ; \
+		$(NINJA) -C "$(PKG_BUILD_DIR)/src/out/Release" naive ; \
 	)
 endef
 
