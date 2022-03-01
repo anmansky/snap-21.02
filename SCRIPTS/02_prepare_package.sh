@@ -215,7 +215,8 @@ rm -rf ./feeds/luci/applications/luci-app-v2ray
 cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray
 ln -sf ../../../feeds/luci/applications/luci-app-v2ray ./package/feeds/luci/luci-app-v2ray
 ##### naiveproxy ssr plus
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
+#svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
+cp -rf ../PACK/luci/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
 # v2raya
 #git clone --depth 1 https://github.com/zxlhhyccc/luci-app-v2raya.git package/new/luci-app-v2raya
 #svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2raya package/new/v2raya
