@@ -182,8 +182,10 @@ sed -i 's,kmod-usb-net-rtl8152,kmod-usb-net-rtl8152-vendor,g' target/linux/rockc
 # UPX 可执行软件压缩
 sed -i '/patchelf pkgconf/i\tools-y += ucl upx' ./tools/Makefile
 sed -i '\/autoconf\/compile :=/i\$(curdir)/upx/compile := $(curdir)/ucl/compile' ./tools/Makefile
-svn co https://github.com/immortalwrt/immortalwrt/branches/master/tools/upx tools/upx
-svn co https://github.com/immortalwrt/immortalwrt/branches/master/tools/ucl tools/ucl
+#svn co https://github.com/immortalwrt/immortalwrt/branches/master/tools/upx tools/upx
+#svn co https://github.com/immortalwrt/immortalwrt/branches/master/tools/ucl tools/ucl
+svn export https://github.com/coolsnowwolf/openwrt/branches/lede-17.01/tools/ucl tools/ucl
+svn export https://github.com/coolsnowwolf/openwrt/branches/lede-17.01/tools/upx tools/upx
 
 # ShadowsocksR Plus+ 依赖
 rm -rf ./feeds/packages/net/kcptun
@@ -210,6 +212,12 @@ svn co https://github.com/immortalwrt/packages/trunk/net/kcptun feeds/packages/n
 ln -sf ../../../feeds/packages/net/kcptun ./package/feeds/packages/kcptun
 
 ###  LuCi ###
+# 更换 golang 版本
+rm -rf ./feeds/packages/lang/golang
+svn export https://github.com/openwrt/packages/trunk/lang/golang feeds/packages/lang/golang
+### add luci acl control
+svn export https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-accesscontrol package/lean/luci-app-accesscontrol
+svn export https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-control-weburl package/new/luci-app-control-weburl
 ## luci-app-v2ray
 rm -rf ./feeds/luci/applications/luci-app-v2ray
 cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray
