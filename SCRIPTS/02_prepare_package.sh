@@ -232,6 +232,7 @@ cp -rf ../PACK/packages/microsocks package/lean/microsocks
 cp -rf ../PACK/packages/pdnsd-alt package/lean/pdnsd-alt
 cp -rf ../PACK/packages/redsocks2 package/lean/redsocks2
 cp -rf ../PACK/packages/trojan package/lean/trojan
+cp -rf ../PACK/packages/tcping package/lean/tcping
 ##### naiveproxy ssr plus
 #svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
 #cp -rf ../PACK/luci/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
