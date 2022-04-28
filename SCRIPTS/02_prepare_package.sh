@@ -220,10 +220,11 @@ svn export https://github.com/openwrt/packages/trunk/lang/golang feeds/packages/
 ### add luci acl control
 svn export https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-accesscontrol package/lean/luci-app-accesscontrol
 svn export https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-control-weburl package/new/luci-app-control-weburl
-## luci-app-v2ray
-rm -rf ./feeds/luci/applications/luci-app-v2ray
-cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray
-ln -sf ../../../feeds/luci/applications/luci-app-v2ray ./package/feeds/luci/luci-app-v2ray
+## luci-app-v2ray app-ssr-plus
+#rm -rf ./feeds/luci/applications/luci-app-v2ray
+#cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray 
+svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
+ln -sf ../../../feeds/luci/applications/luci-app-ssr-plus ./package/feeds/luci/luci-app-ssr-plus
 ##### naiveproxy ssr plus
 #svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
 cp -rf ../PACK/luci/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
