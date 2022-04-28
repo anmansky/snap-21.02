@@ -223,8 +223,8 @@ svn export https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-control-webur
 ## luci-app-v2ray app-ssr-plus
 #rm -rf ./feeds/luci/applications/luci-app-v2ray
 #cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray 
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
-ln -sf ../../../feeds/luci/applications/luci-app-ssr-plus ./package/feeds/luci/luci-app-ssr-plus
+svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus  package/lean/luci-app-ssr-plus
+#ln -sf ../../../feeds/luci/applications/luci-app-ssr-plus ./package/feeds/luci/luci-app-ssr-plus
 ##### naiveproxy ssr plus
 #svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
 #cp -rf ../PACK/luci/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
