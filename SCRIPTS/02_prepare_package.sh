@@ -143,19 +143,19 @@ cp -rf ../PACK/packages/parted package/parted
 ####luci-app-udp2raw
 #cp -rf ../PACK/luci/applications/luci-app-udp2raw package/luci-app-udp2raw
 
-### naiveproxy
+### proxy
 rm -rf ./feeds/packages/net/naiveproxy
 #svn co https://github.com/immortalwrt/packages/trunk/net/naiveproxy feeds/packages/net/naiveproxy
 #cp -rf ../PACK/packages/naiveproxy package/naiveproxy
 #ln -sf ../../../feeds/packages/net/naiveproxy ./package/feeds/packages/naiveproxy
-#cp -rf ../PACK/luci/applications/luci-app-naiveproxy package/luci-app-naiveproxy
+cp -rf ../PACK/luci/applications/luci-app-naiveproxy package/luci-app-naiveproxy
 
 ## cloudflared
 rm -rf ./feeds/packages/net/cloudflared
 svn co https://github.com/immortalwrt/packages/trunk/net/cloudflared feeds/packages/net/cloudflared
 ln -sf ../../../feeds/packages/net/cloudflared ./package/feeds/packages/cloudflared
 ####luci-app-v2ray
-#cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
+cp -rf ../PACK/luci/applications/luci-app-v2ray package/luci-app-v2ray
 
 # 更换 Nodejs 版本
 rm -rf ./feeds/packages/lang/node
@@ -203,7 +203,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipt2socks package
 svn co https://github.com/coolsnowwolf/packages/trunk/net/shadowsocks-libev package/lean/shadowsocks-libev
 svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/lean/simple-obfs
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/lean/naiveproxy
-svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/lean/v2ray-core
+#svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/lean/v2ray-core
+cp -rf ../PACK/packages/v2ray-core package/lean/v2ray-core
 svn co https://github.com/fw876/helloworld/trunk/xray-core package/lean/xray-core
 svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/lean/v2ray-plugin
 svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/lean/xray-plugin
@@ -223,16 +224,16 @@ svn export https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-control-webur
 ## luci-app-v2ray app-ssr-plus
 #rm -rf ./feeds/luci/applications/luci-app-v2ray
 #cp -rf ../PACK/luci/applications/luci-app-v2ray feeds/luci/applications/luci-app-v2ray 
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus  package/lean/luci-app-ssr-plus
+#svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus  package/lean/luci-app-ssr-plus
 #ln -sf ../../../feeds/luci/applications/luci-app-ssr-plus ./package/feeds/luci/luci-app-ssr-plus
 ### add package depend for luci-app-ssr-plus
-cp -rf ../PACK/packages/dns2socks package/lean/dns2socks
-cp -rf ../PACK/packages/ipt2socks package/lean/ipt2socks
-cp -rf ../PACK/packages/microsocks package/lean/microsocks
-cp -rf ../PACK/packages/pdnsd-alt package/lean/pdnsd-alt
-cp -rf ../PACK/packages/redsocks2 package/lean/redsocks2
-cp -rf ../PACK/packages/trojan package/lean/trojan
-cp -rf ../PACK/packages/tcping package/lean/tcping
+#cp -rf ../PACK/packages/dns2socks package/lean/dns2socks
+#cp -rf ../PACK/packages/ipt2socks package/lean/ipt2socks
+#cp -rf ../PACK/packages/microsocks package/lean/microsocks
+#cp -rf ../PACK/packages/pdnsd-alt package/lean/pdnsd-alt
+#cp -rf ../PACK/packages/redsocks2 package/lean/redsocks2
+#cp -rf ../PACK/packages/trojan package/lean/trojan
+#cp -rf ../PACK/packages/tcping package/lean/tcping
 ##### naiveproxy ssr plus
 #svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
 #cp -rf ../PACK/luci/applications/luci-app-ssr-plus feeds/luci/applications/luci-app-ssr-plus
@@ -283,13 +284,14 @@ ln -sf ../../../feeds/packages/utils/cpulimit ./package/feeds/packages/cpulimit
 #ln -sf ../../../feeds/luci/applications/luci-app-aliddns ./package/feeds/luci/luci-app-aliddns
 # Docker #######
 # Docker 容器（会导致 OpenWrt 出现 UDP 转发问题，慎用）
-rm -rf ./feeds/luci/applications/luci-app-dockerman
-svn export https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
-rm -rf ./feeds/luci/collections/luci-lib-docker
-svn export https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker feeds/luci/collections/luci-lib-docker
+#rm -rf ./feeds/luci/applications/luci-app-dockerman
+#svn export https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
+#rm -rf ./feeds/luci/collections/luci-lib-docker
+#svn export https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker feeds/luci/collections/luci-lib-docker
 ####sed -i 's/+docker/+docker \\\n\t+dockerd/g' ./feeds/luci/applications/luci-app-dockerman/Makefile
-sed -i '/sysctl.d/d' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/+docker/+docker \\\n\t+dockerd/g' ./feeds/luci/applications/luci-app-dockerman/Makefile
+#sed -i '/sysctl.d/d' feeds/packages/utils/dockerd/Makefile
+##sed -i 's/+docker/+docker \\\n\t+dockerd/g' ./feeds/luci/applications/luci-app-dockerman/Makefile
+#
 # Dnsfilter
 #git clone --depth 1 https://github.com/kiddin9/luci-app-dnsfilter.git package/new/luci-app-dnsfilter
 # Dnsproxy
