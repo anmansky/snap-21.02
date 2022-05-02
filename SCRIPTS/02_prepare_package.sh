@@ -227,10 +227,10 @@ svn export https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-control-webur
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus  package/lean/luci-app-ssr-plus
 #ln -sf ../../../feeds/luci/applications/luci-app-ssr-plus ./package/feeds/luci/luci-app-ssr-plus
 ### add package depend for luci-app-ssr-plus
-#cp -rf ../PACK/packages/dns2socks package/lean/dns2socks
-#cp -rf ../PACK/packages/ipt2socks package/lean/ipt2socks
+cp -rf ../PACK/packages/dns2socks package/lean/dns2socks
+cp -rf ../PACK/packages/ipt2socks package/lean/ipt2socks
 #cp -rf ../PACK/packages/microsocks package/lean/microsocks
-#cp -rf ../PACK/packages/pdnsd-alt package/lean/pdnsd-alt
+cp -rf ../PACK/packages/pdnsd-alt package/lean/pdnsd-alt
 #cp -rf ../PACK/packages/redsocks2 package/lean/redsocks2
 #cp -rf ../PACK/packages/trojan package/lean/trojan
 #cp -rf ../PACK/packages/tcping package/lean/tcping
